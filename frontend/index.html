@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Desafio</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="index.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.js"></script>
+
+    <script src="script.js"></script>
+</head>
+<body ng-app="DesafioApp">
+    <div ng-controller="DesafioController" ng-init="init()" class="container">
+        <h2>Desafio</h2>
+        <h4>Desafio proposto: Converter dados de sistema legado (JSON) em api REST e consumir a mesma utilizando uma aplicação</h4>
+        <h6>Desenvolvido por: <strong>Marcos Martini</strong></h6>            
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Data Lançamento</th>
+              <th>Descrição</th>
+              <th>Número</th>
+              <th>Situação</th>
+              <th>Data Confirmação</th>
+              <th>Dados Bancarios</th>
+              <th>Valor final</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="cl in data.data.listaControleLancamento">
+              <td>{{cl.dataEfetivaLancamento}}</td>
+              <td>{{cl.lancamentoContaCorrenteCliente.nomeTipoOperacao}}</td>
+              <td>{{cl.lancamentoContaCorrenteCliente.numeroRemessaBanco}}</td>
+              <td>{{cl.lancamentoContaCorrenteCliente.nomeSituacaoRemessa}}</td>
+              <td>{{cl.dataEfetivaLancamento}}</td>
+              <td>{{cl.nomeBanco}} Ag{{cl.lancamentoContaCorrenteCliente.dadosDomicilioBancario.numeroAgencia}} CC {{cl.lancamentoContaCorrenteCliente.dadosDomicilioBancario.numeroContaCorrente}}</td>
+              <td>{{cl.valorLancamentoRemessa}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</body>
+</html>
